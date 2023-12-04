@@ -1,5 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -16,6 +18,8 @@ const columns = [
 ];
 
 export default function Users() {
+  const navigator = useNavigate();
+
   const users = [
     {
       id: 1,
@@ -25,9 +29,16 @@ export default function Users() {
     },
   ];
 
+  const handleNewUserClick = () => {
+    navigator("/newUser");
+  };
+
   return (
     <>
-      <Header title='Users'/>
+      <Header title="Users" />
+      <Button variant="contained" onClick={handleNewUserClick} id="newUserBtn">
+        Add New User
+      </Button>
       <Table id="userTable">
         <TableHead>
           <TableRow>
