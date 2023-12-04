@@ -53,3 +53,17 @@ form {
   font-size: 16px;
   font-weight: 600;
 }
+
+#newUserForm{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  width: 600px;
+  margin: 50px auto;
+}
+
+#removePhoneBtn{
+  background-color: red;
+  width: 130px;
+}
