@@ -43,6 +43,21 @@ export default function NewUser() {
         setMessage("Invalid name");
         return;
     }
+
+    const newUser = { name: name, email: email, address: address, phones: phones };
+    const response = await fetch("http://localhost:5000/newUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    });
+    const data = await response.json();
+    if (data.message) {
+      setMessage(data.message);
+    } else {
+      setMessage("User added successfully!");
+    }
   };
 
   return (

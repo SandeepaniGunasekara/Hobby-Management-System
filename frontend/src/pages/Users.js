@@ -9,6 +9,8 @@ import {
   TableRow,
 } from "@mui/material";
 import Header from "../components/header";
+import { useEffect ,useState} from "react";
+
 
 const columns = [
   { id: "id", label: "ID" },
@@ -19,15 +21,20 @@ const columns = [
 
 export default function Users() {
   const navigator = useNavigate();
+  const [users, setUsers] = useState([]);
 
-  const users = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "johndoe@example.com",
-      address: "1234 Main St",
-    },
-  ];
+  useEffect(() => {
+    fetch("http://localhost:5000/users", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+          setUsers(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
 
   const handleNewUserClick = () => {
     navigator("/newUser");
