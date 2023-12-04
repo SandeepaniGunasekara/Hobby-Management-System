@@ -6,6 +6,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import Header from "../components/header";
 
 const columns = [
   { id: "id", label: "ID" },
@@ -25,23 +26,26 @@ export default function Users() {
   ];
 
   return (
-    <Table id='userTable'>
-      <TableHead>
-        <TableRow>
-          {columns.map((column) => (
-            <TableCell key={column.id}>{column.label}</TableCell>
-          ))}
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {users.map((row) => (
-          <TableRow key={row.id}>
+    <>
+      <Header title='Users'/>
+      <Table id="userTable">
+        <TableHead>
+          <TableRow>
             {columns.map((column) => (
-              <TableCell>{row[column.id]}</TableCell>
+              <TableCell key={column.id}>{column.label}</TableCell>
             ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody>
+          {users.map((row) => (
+            <TableRow key={row.id}>
+              {columns.map((column) => (
+                <TableCell>{row[column.id]}</TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </>
   );
 }
