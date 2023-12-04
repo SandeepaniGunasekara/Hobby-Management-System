@@ -27,7 +27,7 @@ form {
   gap: 15px;
 }
 
-#message {
+.message {
   color: red;
   font-size: 12px;
   text-align: center;

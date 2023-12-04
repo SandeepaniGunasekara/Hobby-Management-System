@@ -14,7 +14,7 @@ export default function Login() {
     return (
       <div className="login-page">
         <h1>Login</h1>
-        <p id='message'>{message}</p>
+        <p className='message'>{message}</p>
         <form onSubmit={handleSubmit}>
           <TextField
             id="email"
