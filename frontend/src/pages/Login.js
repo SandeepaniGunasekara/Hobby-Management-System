@@ -19,7 +19,7 @@ export default function Login() {
 
       const credentials = {email: email, password: password};
       
-      fetch('login', {
+      fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
